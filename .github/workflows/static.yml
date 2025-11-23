@@ -45,7 +45,7 @@ jobs:
         with:
           # Path to deploy
           # If using Vite → change to: path: './dist'
-          path: './'
+          path: './dist'
 
       # 5) Deploy
       - name: Deploy to GitHub Pages
