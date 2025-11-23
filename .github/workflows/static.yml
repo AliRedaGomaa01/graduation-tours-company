@@ -1,0 +1,53 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]   # Deploy from main branch
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Checkout repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2) Build (optional — remove if no build step)
+      # - name: Install dependencies
+      #   run: npm install
+      #
+      # - name: Build project
+      #   run: npm run build
+      #
+      # NOTE: If Vite is used, use "dist" below instead of "."
+
+      # 3) Setup Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 4) Upload static files
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Path to deploy
+          # If using Vite → change to: path: './dist'
+          path: './'
+
+      # 5) Deploy
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
