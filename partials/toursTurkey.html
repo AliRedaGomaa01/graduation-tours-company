@@ -59,10 +59,39 @@
   <div id="turkeyImages" class="carousel slide" data-bs-ride="carousel">
     <!-- Indicators/dots -->
     <div class="carousel-indicators">
+      <button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="4"></button>
+      <button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="5"></button>
     </div>
 
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="src/website-assets/turkey-tour/1.jpeg" alt="tour image 1" class="d-block w-100">
+      </div>
+
+      <div class="carousel-item">
+        <img src="src/website-assets/turkey-tour/2.jpeg" alt="tour image 2" class="d-block w-100">
+      </div>
+
+      <div class="carousel-item">
+        <img src="src/website-assets/turkey-tour/3.jpeg" alt="tour image 3" class="d-block w-100">
+      </div>
+
+      <div class="carousel-item">
+        <img src="src/website-assets/turkey-tour/4.jpeg" alt="tour image 4" class="d-block w-100">
+      </div>
+
+      <div class="carousel-item">
+        <img src="src/website-assets/turkey-tour/5.jpeg" alt="tour image 5" class="d-block w-100">
+      </div>
+
+      <div class="carousel-item">
+        <img src="src/website-assets/turkey-tour/6.jpeg" alt="tour image 6" class="d-block w-100">
+      </div>
     </div>
 
     <!-- Left and right controls/icons -->
@@ -75,7 +104,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
   const turkeyImages = [
     '',
     '',
@@ -86,7 +115,7 @@
   ];
 
   const turkeyImagesHtml = turkeyImages.map((_img, index) => {
-    return `<div class="carousel-item"><img src="../src/website-assets/turkey-tour/${index + 1}.jpeg" alt="tour image ${index + 1}" class="d-block w-100"></div>`;
+    return `<div class="carousel-item"><img src="src/website-assets/turkey-tour/${index + 1}.jpeg" alt="tour image ${index + 1}" class="d-block w-100"></div>`;
   });
 
   const turkeyIndicatorBtns = turkeyImages.map((_img, index) => {
@@ -97,4 +126,4 @@
   document.querySelector("#turkey .carousel-indicators>button").classList.add("active");
   document.querySelector("#turkey .carousel-inner").innerHTML = turkeyImagesHtml.join("");
   document.querySelector("#turkey .carousel-inner>div").classList.add("active");
-</script>
+</script> -->
