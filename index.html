@@ -28,6 +28,12 @@
       {{> authLogin }}
     </div>
     <div id="tours">
+      <div id="egypt">
+        {{> toursEgypt }}
+      </div>
+      <div id="turkey">
+        {{> toursTurkey }}
+      </div>
     </div>
   </main>
   <!-- END CONTENT -->
@@ -36,34 +42,8 @@
   {{> layoutFooter }}
 
   <!-- SCRIPTS: -->
-
   <script type="module" src="/src/main.js"></script>
-
-  <script>
-    window.onload = () => {
-      const pageTitle = {
-        home: " | الرئيسية",
-        register: " | التسجيل",
-        login: " | تسجيل الدخول",
-        tours: " | الرحلات",
-      }
-      // Get the URL query parameters
-      const params = new URLSearchParams(window.location.search);
-      let pagePath = "home";
-      if (params.has("pagePath") && ['register', 'login', 'tours'].includes(params.get("pagePath"))) {
-        pagePath = params.get("pagePath");
-      }
-      document.querySelector('head title').innerHTML += pageTitle[pagePath];
-      const activePage = ['register', 'login'].includes(pagePath) ? 'auth' : pagePath;
-      document.querySelector('.nav-link[data-page="' + activePage + '"]').classList.add('active');
-      // remove all unnecessary content
-      const mainSection = document.querySelector('main');
-      const requiredSection = document.querySelector('#' + pagePath);
-      mainSection.innerHTML = requiredSection.innerHTML;
-      mainSection.style.display = "block";
-    }
-  </script>
-
+  {{> layoutRoutingScript }}
   <!-- END SCRIPTS -->
 </body>
 

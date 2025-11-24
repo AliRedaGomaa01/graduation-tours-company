@@ -1,0 +1,100 @@
+<div class="card rounded p-0 w-100">
+  <h1 class="fs-2 fw-bold text-dark p-2 my-2 bg-dark text-white mt-0">رحلة إلى اسطنبول في تركيا</h1>
+
+  <ul class="fs-5 text-secondary m-2">
+    <li>إسطنبول هي واحدة من أكبر و أجمل مدن تركيا.</li>
+    <li>وهي مصنفة ضمن أكثر المدن السياحية جذباً للسياح في العالم.</li>
+    <li>وتُعتبر إسطنبول الخيار الأول للسياح الذين يفكرون في الذهاب إلى تركيا.</li>
+    <br>
+    <li>
+      ستكون جولتنا في المعالم السياحية التالية:
+      <ol>
+        <br>
+        <li>
+          متحف آيا صوفيا:
+          <ul>
+            <li>عُرف في العصر العُثماني باسم الجامع الكبير الشريف لآيا صوفيا، </li>
+            <li>يقع على الضفة الأوروبيَّة في مدينة إسطنبول .</li>
+            <li>وهو من أشهر المعالم في تركيا التي يحرص الجميع على زيارتها أثناء جولات السياحة في إسطنبول.</li>
+          </ul>
+        </li>
+        <br>
+
+        <li>
+          قصر توب كابي:
+          <ul>
+            <li>من أفضل الأماكن السياحية في إسطنبول </li>
+            <li>يوصى بزيارتها لمعرفة كيف كانت تُدار شئون الحياة والحكم في ظل الخلافة العثمانية بتركيا طيلة 4 قرون .</li>
+            <li>يستعرض المتحف العظيم أحداثها وتفاصيلها.</li>
+          </ul>
+        </li>
+        <br>
+
+        <li>
+          برج غالاتا:
+          <ul>
+            <li>برج غالاتا هو برج تاريخي عريق يُقال أنه بُنِي عام 507 م .</li>
+            <li>ثم تعرض البرج لزلزال قوي أثر عليه تأثيراً بالغًا، </li>
+            <li>بعدها تم اعادة ترميمه وبُنِي على الطراز الرومانسكي في القرن الـ 14،</li>
+            <li>وفي هذا الوقت كان أطول مبنى في اسطنبول.</li>
+          </ul>
+        </li>
+        <br>
+
+        <li>
+          جامع أيوب سلطان:
+          <ul>
+            <li>مسجد عثماني قديم . </li>
+            <li>في منطقة أيوب في الجانب الأوروبي من مدينة إسطنبول، </li>
+            <li>بالقرب من منطقة القرن الذهبي، </li>
+            <li> ويقع خارج أسوار القسطنطينية،</li>
+            <li> إذ بني المسجد عام 1458 أي بعد خمس سنوات من فتح القسطنطينية، </li>
+            <li>وهو أول مسجد بناه المسلمون في إسطنبول بعد فتح القسطنطينية عام 1453. </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ul>
+  <br>
+  <div id="turkeyImages" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#turkeyImages" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#turkeyImages" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+<script>
+  const turkeyImages = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+  ];
+
+  const turkeyImagesHtml = turkeyImages.map((_img, index) => {
+    return `<div class="carousel-item"><img src="../src/website-assets/turkey-tour/${index + 1}.jpeg" alt="tour image ${index + 1}" class="d-block w-100"></div>`;
+  });
+
+  const turkeyIndicatorBtns = turkeyImages.map((_img, index) => {
+    return `<button type="button" data-bs-target="#turkeyImages" data-bs-slide-to="` + index + `"></button>`;
+  });
+
+  document.querySelector("#turkey .carousel-indicators").innerHTML = turkeyIndicatorBtns.join("");
+  document.querySelector("#turkey .carousel-indicators>button").classList.add("active");
+  document.querySelector("#turkey .carousel-inner").innerHTML = turkeyImagesHtml.join("");
+  document.querySelector("#turkey .carousel-inner>div").classList.add("active");
+</script>

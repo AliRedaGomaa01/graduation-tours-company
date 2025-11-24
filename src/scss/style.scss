@@ -32,3 +32,10 @@
 .forgot-password a {
   text-decoration: none;
 }
+.card ul:not(.navbar-nav) ,
+.card ul:not(.navbar-nav)   {
+  @extend .ps-0;
+}
+ul:not(.navbar-nav) li {
+  text-align: justify;
+}
