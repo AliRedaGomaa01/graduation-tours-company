@@ -25,5 +25,9 @@
     "bootstrap-rtl": "^3.3.4",
     "sass": "^1.94.2",
     "vite": "^7.2.4"
+  },
+  "devDependencies": {
+    "vite-plugin-handlebars": "^2.0.0",
+    "vite-plugin-html": "^3.2.2"
   }
 }
