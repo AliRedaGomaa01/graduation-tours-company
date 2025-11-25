@@ -1,10 +1,28 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-rtl/dist/css/bootstrap-rtl.css";
+@import "variables";
 
 @media (min-width: 992px) {
   .max-w-lg-fit {
     max-width: fit-content !important;
   }
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  @extend .bg-primary;
+  border-color: var(--primary) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
 }
 
 .form-container {
@@ -32,8 +50,8 @@
 .forgot-password a {
   text-decoration: none;
 }
-.card ul:not(.navbar-nav) ,
-.card ul:not(.navbar-nav)   {
+.card ul:not(.navbar-nav),
+.card ul:not(.navbar-nav) {
   @extend .ps-0;
 }
 ul:not(.navbar-nav) li {

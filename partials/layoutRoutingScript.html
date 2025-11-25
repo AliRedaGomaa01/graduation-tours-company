@@ -17,7 +17,7 @@
       // Get the URL query parameters
       const params = new URLSearchParams(window.location.search);
       let pagePath = "home";
-      if (params.has("pagePath") && ['register', 'login', 'tours'].includes(params.get("pagePath"))) {
+      if (params.has("pagePath") && Object.keys(pageTitle).includes(params.get("pagePath"))) {
         pagePath = params.get("pagePath");
       }
       document.querySelector('head title').innerHTML += pageTitle[pagePath];
@@ -27,6 +27,7 @@
       const mainSection = document.querySelector('main');
       const requiredSection = document.querySelector('#' + pagePath);
       mainSection.innerHTML = requiredSection.innerHTML;
-      mainSection.style.display = "flex";
+      document.body.classList.add(pagePath);
+      document.body.style.display = "flex";
     }
   </script>
