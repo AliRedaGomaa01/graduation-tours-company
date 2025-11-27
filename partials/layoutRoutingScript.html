@@ -1,33 +1,67 @@
-  <script>
-/**
- * Function to handle routing to be suitable with github pages hosting.
- * Sets the page title based on the URL query parameter "pagePath".
- * Sets the active navigation link based on the page path.
- * Removes all unnecessary content from the main section and sets the required section as the main content.
- */
-    window.onload = () => {
-      const pageTitle = {
-        home: " | الرئيسية",
-        register: " | التسجيل",
-        login: " | تسجيل الدخول",
-        tours: " | الرحلات",
-        egypt: " | رحلة مصر",
-        turkey: " | رحلة تركيا"
-      }
-      // Get the URL query parameters
-      const params = new URLSearchParams(window.location.search);
-      let pagePath = "home";
-      if (params.has("pagePath") && Object.keys(pageTitle).includes(params.get("pagePath"))) {
-        pagePath = params.get("pagePath");
-      }
-      document.querySelector('head title').innerHTML += pageTitle[pagePath];
-      const activePage = ['register', 'login'].includes(pagePath) ? 'auth' : (['egypt', 'turkey'].includes(pagePath) ? 'tours' : pagePath);
-      document.querySelector('.nav-link[data-page="' + activePage + '"]').classList.add('active');
-      // remove all unnecessary content
-      const mainSection = document.querySelector('main');
-      const requiredSection = document.querySelector('#' + pagePath);
-      mainSection.innerHTML = requiredSection.innerHTML;
-      document.body.classList.add(pagePath);
-      document.body.style.display = "flex";
+<script>
+  function validatePassword() {
+    const formElement = document.querySelector('.needs-validation');
+    const password = formElement.querySelector('#password');
+    const confirmPassword = formElement.querySelector('#confirmPassword');
+    const feedback = formElement.querySelector('#confirmPasswordFeedback');
+
+    confirmPassword.setCustomValidity('');
+
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setCustomValidity('كلمتا المرور غير متطابقتين');
+      feedback.textContent = 'كلمتا المرور غير متطابقتين';
+    } else {
+      feedback.textContent = 'يرجى تأكيد كلمة المرور.';
     }
-  </script>
+
+    return formElement
+  }
+
+  function formSubmit() {
+    const formElement = validatePassword();
+
+    if (!formElement.checkValidity()) {
+      formElement.classList.add('was-validated');
+      return;
+    }
+    alert('تم الارسال بنجاح');
+  }
+</script>
+
+<script>
+  /**
+   * Function to handle routing to be suitable with github pages hosting.
+   * Sets the page title based on the URL query parameter "pagePath".
+   * Sets the active navigation link based on the page path.
+   * Removes all unnecessary content from the main section and sets the required section as the main content.
+   */
+  window.onload = () => {
+    const pageTitle = {
+      home: " | الرئيسية",
+      register: " | التسجيل",
+      login: " | تسجيل الدخول",
+      // tours: " | الرحلات",
+      egypt: " | رحلة مصر",
+      turkey: " | رحلة تركيا"
+    }
+    // Get the URL query parameters
+    const params = new URLSearchParams(window.location.search);
+    let pagePath = "home";
+    if (params.has("pagePath") && Object.keys(pageTitle).includes(params.get("pagePath"))) {
+      pagePath = params.get("pagePath");
+    }
+    document.querySelector('head title').innerHTML += pageTitle[pagePath];
+    const activePage = ['register', 'login'].includes(pagePath) ? 'auth' : (['egypt', 'turkey'].includes(pagePath) ? ' ' : pagePath);
+    document.querySelector('.nav-link[data-page="' + activePage + '"]')?.classList?.add('active');
+    // remove all unnecessary content
+    const mainSection = document.querySelector('main');
+    if (pagePath == "home") {
+      mainSection.classList.remove('container', 'my-5'); 
+      mainSection.classList.add('mb-5');
+    }
+    const requiredSection = document.querySelector('#' + pagePath);
+    mainSection.innerHTML = requiredSection.innerHTML;
+    document.body.classList.add(pagePath);
+    document.body.style.display = "flex";
+  }
+</script>

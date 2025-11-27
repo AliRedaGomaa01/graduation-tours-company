@@ -1,19 +1,26 @@
-
 <div class="form-container" id="loginForm">
   <h2 class="form-title mb-5">تسجيل الدخول</h2>
-  <form>
+  <form class="needs-validation" novalidate>
+    <input type="hidden" name="pagePath" value="login">
     <div class="mb-3">
       <label for="emailLogin" class="form-label">البريد الإلكتروني</label>
-      <input type="email" class="form-control" id="emailLogin" placeholder="أدخل بريدك الإلكتروني">
+      <input type="email" class="form-control" id="emailLogin" placeholder="أدخل بريدك الإلكتروني" required>
+      <div class="invalid-feedback">
+        يرجى إدخال بريد إلكتروني صحيح.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="passwordLogin" class="form-label">كلمة المرور</label>
-      <input type="password" class="form-control" id="passwordLogin" placeholder="أدخل كلمة المرور">
+      <input type="password" class="form-control" id="passwordLogin" placeholder="أدخل كلمة المرور" required>
+      <div class="invalid-feedback">
+        يرجى إدخال كلمة المرور.
+      </div>
     </div>
 
-    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-stretch align-items-sm-center mt-5 text-center gap-2">
-      <button type="submit" class="btn btn-primary mb-2  px-5 py-2 ">تسجيل الدخول</button>
+    <div
+      class="d-flex flex-column flex-sm-row justify-content-between align-items-stretch align-items-sm-center mt-5 text-center gap-2">
+      <button type="button" class="btn btn-primary mb-2  px-5 py-2 " onclick="formSubmit()">تسجيل الدخول</button>
       <a href="#">هل نسيت كلمة المرور؟</a>
     </div>
   </form>

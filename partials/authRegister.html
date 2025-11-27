@@ -1,33 +1,50 @@
 <div class="form-container" id="registerForm">
   <h2 class="form-title mb-5">تسجيل حساب جديد</h2>
-  <form>
+  <form class="needs-validation" novalidate >
+    <input type="hidden" name="pagePath" value="register">
     <div class="mb-3">
       <label for="name" class="form-label">الاسم</label>
-      <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
+      <input type="text" class="form-control" id="name" placeholder="أدخل اسمك" required>
+      <div class="invalid-feedback">
+        يرجى إدخال الاسم.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="dob" class="form-label">تاريخ الميلاد</label>
-      <input type="date" class="form-control" id="dob">
+      <input type="date" class="form-control" id="dob" required>
+      <div class="invalid-feedback">
+        يرجى اختيار تاريخ الميلاد.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">البريد الإلكتروني</label>
-      <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني">
+      <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+      <div class="invalid-feedback">
+        يرجى إدخال بريد إلكتروني صحيح.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="password" class="form-label">كلمة المرور</label>
-      <input type="password" class="form-control" id="password" placeholder="أدخل كلمة المرور">
+      <input type="password" class="form-control" id="password" placeholder="أدخل كلمة المرور" required>
+      <div class="invalid-feedback">
+        يرجى إدخال كلمة المرور.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="confirmPassword" class="form-label">تأكيد كلمة المرور</label>
-      <input type="password" class="form-control" id="confirmPassword" placeholder="أعد كتابة كلمة المرور">
+      <input type="password" class="form-control" id="confirmPassword" placeholder="أعد كتابة كلمة المرور" required>
+      <div class="invalid-feedback" id="confirmPasswordFeedback">
+        يرجى تأكيد كلمة المرور.
+      </div>
     </div>
 
-    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-stretch align-items-sm-center mt-5 text-center gap-2">
-      <button type="submit" class="btn btn-primary mb-2 px-5 py-2 "> إنشاء حساب جديد </button>
+    <div
+      class="d-flex flex-column flex-sm-row justify-content-between align-items-stretch align-items-sm-center mt-5 text-center gap-2">
+      <button type="button" class="btn btn-primary mb-2 px-5 py-2 " onclick="formSubmit()"> إنشاء حساب جديد </button>
       <a href="?pagePath=login">هل لديك حساب بالفعل؟</a>
     </div>
   </form>

@@ -8,16 +8,25 @@
   {{> layoutHeader }}
 
   <!-- CONTENT: -->
+   <!-- container class is deleted by js in home page -->
   <main class="container my-5 d-flex flex-column align-items-center gap-5">
     <div id="home">
-      <!-- About -->
-      {{> indexAbout }}
-      <!-- services -->
-      {{> indexServices }}
-      <!-- tours -->
-      {{> indexTours }}
-      <!-- contact -->
-      {{> indexContact }}
+      <!-- Banner -->
+      <div class="container-fluid m-0 p-0">
+        {{> indexBanner }}
+      </div>
+      <div class="container d-flex flex-column align-items-center gap-5">
+        <!-- About -->
+        {{> indexAbout }}
+        <!-- Video -->
+        {{> indexVideo }}
+        <!-- services -->
+        {{> indexServices }}
+        <!-- tours -->
+        {{> indexTours }}
+        <!-- contact -->
+        {{> indexContact }}
+      </div>
     </div>
     <div id="register">
       <!-- register -->
@@ -27,14 +36,14 @@
       <!-- login -->
       {{> authLogin }}
     </div>
-    <div id="tours">
+    <!-- <div id="tours"> -->
       <div id="egypt">
         {{> toursEgypt }}
       </div>
       <div id="turkey">
         {{> toursTurkey }}
       </div>
-    </div>
+    <!-- </div> -->
   </main>
   <!-- END CONTENT -->
 
